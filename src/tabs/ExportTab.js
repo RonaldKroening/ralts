@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { saveAs } from 'file-saver';
 import JSZip from 'jszip';
+import './ExportTab.css';
 
 // Mocking the keywords.json content
 const keywordsJson = {
@@ -16,6 +17,8 @@ const ExportTab = ({ projects, education, experiences, contactInfo }) => {
     const [allExperiences, setAllExperiences] = useState([]);
     const [keywordsDict, setKeywordsDict] = useState({});
     const [keywordsArray, setKeywordsArray] = useState([]);
+    const [latexContent, setLatexContent] = useState('');
+    const [chosenExperiences, setChosenExperiences] = useState([]);
 
     useEffect(() => {
         // Simulating the fetching of keywords.json
@@ -32,6 +35,16 @@ const ExportTab = ({ projects, education, experiences, contactInfo }) => {
         const combinedExperiences = [...experiences, ...projects];
         setAllExperiences(combinedExperiences);
     }, [experiences, projects]);
+
+    useEffect(() => {
+        // Generate LaTeX content when the component mounts
+        const title = ""; // You can set the title based on the user input or other logic
+        const description = ""; // You can set the description based on the user input or other logic
+        const rankedExperiences = rankExperiences(title, description);
+        setChosenExperiences(rankedExperiences);
+        const latex = generateLaTeXContent(contactInfo, education, rankedExperiences);
+        setLatexContent(latex);
+    }, [allExperiences]);
 
     const rankExperiences = (title, description) => {
         const jobDescription = description.toLowerCase();
@@ -165,12 +178,12 @@ ${generateExperienceSection(rankedExperiences)}
     };
 
     const generateFolder = () => {
-        const folder = new Blob([], { type: "application/zip" });
         const title = ""; // You can set the title based on the user input or other logic
         const description = ""; // You can set the description based on the user input or other logic
         const rankedExperiences = rankExperiences(title, description);
 
         const latexContent = generateLaTeXContent(contactInfo, education, rankedExperiences);
+        setLatexContent(latexContent);
 
         // Save each JSON object as a file in the folder
         const projectsBlob = new Blob([JSON.stringify(projects, null, 2)], { type: 'application/json' });
@@ -194,9 +207,18 @@ ${generateExperienceSection(rankedExperiences)}
             });
     };
 
+    const copyLatexToClipboard = () => {
+        navigator.clipboard.writeText(latexContent).then(() => {
+            alert("LaTeX content copied to clipboard!");
+        }, () => {
+            alert("Failed to copy LaTeX content to clipboard.");
+        });
+    };
+
     return (
         <div>
             <button onClick={generateFolder}>Export Data</button>
+            <button onClick={copyLatexToClipboard} style={{ marginLeft: '10px' }}>Copy LaTeX to Clipboard</button>
         </div>
     );
 };
