@@ -1,0 +1,152 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 600px;
+  margin: 50px auto;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.tabs {
+  display: flex;
+  background-color: #333;
+  color: #fff;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.tab:hover,
+.tab.active {
+  background-color: #555;
+}
+
+.content {
+  padding: 20px;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  flex: 1;
+}
+
+.form-group:not(:last-child) {
+  margin-right: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="file"],
+select,
+textarea {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+textarea {
+  height: 100px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+.hidden {
+  display: none;
+}
+
+.table-container {
+  margin-bottom: 20px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.table th, .table td {
+  border: 1px solid #000;
+  padding: 10px;
+  text-align: left;
+}
+
+.table th {
+  background-color: #ccc;
+}
+
+.export-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.export-container button {
+  margin-bottom: 20px;
+  width: 80%;
+}
+
+.experience-container {
+  margin-top: 20px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.experience-box {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 3px;
+}
+
+.experience-header {
+  background-color: #ccc;
+  padding: 5px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+/* Data tab specific styles */
+.data-btn {
+  font-size: 12px;
+  padding: 5px;
+}
+
+.data-table .table th, .data-table .table td {
+  padding: 5px;
+  font-size: 12px;
+}
