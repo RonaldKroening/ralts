@@ -1,5 +1,6 @@
 {
   "name": "ralts",
+  "homepage": "https://ronaldkroening.github.io/ralts",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
