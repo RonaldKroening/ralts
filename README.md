@@ -11,3 +11,6 @@ does not rely on AI in any means.
 
 The resume is then converted to a latex format that can be copied and pasted into the viewer of choice to be downloaded.
 
+# How can I start?
+
+The project's page is https://ronaldkroening.github.io/ralts
