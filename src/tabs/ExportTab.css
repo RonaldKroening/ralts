@@ -1,11 +1,11 @@
-button {
+.exp-button {
     padding: 10px 20px;
-    background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     margin-right: 10px;
+    margin-bottom: 2em;
 }
 
 button:hover {

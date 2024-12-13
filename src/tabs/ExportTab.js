@@ -217,8 +217,8 @@ ${generateExperienceSection(rankedExperiences)}
 
     return (
         <div>
-            <button onClick={generateFolder}>Export Data</button>
-            <button onClick={copyLatexToClipboard} style={{ marginLeft: '10px' }}>Copy LaTeX to Clipboard</button>
+            <button className="exp-button" onClick={generateFolder}>Export Data</button>
+            <button className="exp-button" onClick={copyLatexToClipboard} >Copy LaTeX to Clipboard</button>
         </div>
     );
 };
